@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/views/IndexPage.dart';
-import 'package:flutter_project/views/tabs/DetailPage.dart';
+import 'package:flutter_project/views/tabs/SettingPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: IndexPage.routeName,
       routes: {
         IndexPage.routeName: (context) => IndexPage(),
-        DetailPage.routeName: (context) => DetailPage(),
+        SettingPage.routeName: (context) => SettingPage(),
       },
     );
   }

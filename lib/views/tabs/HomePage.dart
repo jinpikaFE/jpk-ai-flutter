@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import 'DetailPage.dart';
+import 'SettingPage.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/';
+  static const String title = 'Home';
 
   const HomePage({Key? key}) : super(key: key);
 
@@ -25,9 +26,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-      ),
       body: Center(
         child: Column(
           children: [
@@ -42,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 // _handleTap();
                 Navigator.pushNamed(
                   context,
-                    DetailPage.routeName
+                    SettingPage.routeName
                 );
               },
               child: Text("切换图片"),
