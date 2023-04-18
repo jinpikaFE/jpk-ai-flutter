@@ -24,11 +24,14 @@ class RightDrawer extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: ClipOval(
                       child: CachedNetworkImage(
-                      imageUrl: "https://jinpika-1308276765.cos.ap-shanghai.myqcloud.com/images/logo.png",
-                      progressIndicatorBuilder: (context, url, downloadProgress) =>
-                          CircularProgressIndicator(value: downloadProgress.progress),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    ),
+                        imageUrl:
+                            "https://jinpika-1308276765.cos.ap-shanghai.myqcloud.com/images/logo.png",
+                        progressIndicatorBuilder:
+                            (context, url, downloadProgress) =>
+                                CircularProgressIndicator(
+                                    value: downloadProgress.progress),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
                     ),
                   ),
                   Text(

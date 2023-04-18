@@ -9,12 +9,43 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+      textStyle: TextStyle(fontSize: 20),
+      primary: Colors.black54,
+      onPrimary: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+    );
+
+    final ThemeData theme = ThemeData(
+      brightness: Brightness.dark, // 设置亮度为暗色调
+      primaryColor: Colors.black, // 设置主要颜色为黑色
+      accentColor: Colors.white, // 设置强调颜色为白色
+      fontFamily: 'Roboto', // 设置字体为 Roboto
+      textTheme: const TextTheme(
+        headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+        headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+        bodyText2: TextStyle(fontSize: 18.0),
+      ),
+      buttonTheme: const ButtonThemeData(
+        buttonColor: Colors.black, // 设置按钮颜色为黑色
+        textTheme: ButtonTextTheme.primary,
+      ),
+      elevatedButtonTheme:  ElevatedButtonThemeData(
+        style: raisedButtonStyle
+      ),
+    );
     return MaterialApp(
       title: 'Flutter Demo',
       initialRoute: IndexPage.routeName,
+      theme: theme,
       routes: {
         IndexPage.routeName: (context) => IndexPage(),
         SettingPage.routeName: (context) => SettingPage(),
