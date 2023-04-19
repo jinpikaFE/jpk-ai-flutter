@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/config/ProdConfig.dart';
 import 'package:flutter_project/views/IndexPage.dart';
 import 'package:flutter_project/views/tabs/SettingPage.dart';
 
+import 'config/Config.dart';
+import 'config/DevConfig.dart';
+
 void main() {
+  const env = String.fromEnvironment('ENV', defaultValue: 'dev');
+  switch (env) {
+    case 'dev':
+    // 加载开发环境配置文件
+      final apiBaseUrl = DevConfig.apiBaseUrl;
+      Config.apiBaseUrl =apiBaseUrl;
+      break;
+    case 'prod':
+    // 加载生产环境配置文件
+      final apiBaseUrl = ProdConfig.apiBaseUrl;
+      Config.apiBaseUrl =apiBaseUrl;
+      break;
+  }
   runApp(const MyApp());
 }
 

@@ -2,10 +2,12 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
+import '../config/Config.dart';
+
 //BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
 var options = BaseOptions(
   //请求基地址,可以包含子路径
-  baseUrl: "http://localhost:3060",
+  baseUrl: Config.apiBaseUrl,
   //连接服务器超时时间，单位是毫秒.
   connectTimeout: 10000,
   //响应流上前后两次接受到数据的间隔，单位为毫秒。

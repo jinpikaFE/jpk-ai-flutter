@@ -85,7 +85,6 @@ class _HomePageState extends State<HomePage> {
                               dynamic res = await AiApi.textToImage(formData);
                               AiResult result = AiResult.fromJson(res);
                               String? resBase = result?.data?.artifacts?.elementAt(0)?.base64;
-                              print(resBase);
                               if (resBase !=null) {
                                 setState(() {
                                   _imgUrl = resBase;
