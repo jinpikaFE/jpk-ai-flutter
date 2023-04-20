@@ -43,8 +43,8 @@ class DioManager {
   DioManager._internal() {
     BaseOptions options = BaseOptions(
       baseUrl: Config.apiBaseUrl,
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: 5000 * 60,
+      receiveTimeout: 1000 * 60,
     );
 
     _dio = Dio(options);
