@@ -1,7 +1,7 @@
-import '../utils/HttpUtil.dart';
+import '../utils/DioManager.dart';
 
 class AiApi {
   static textToImage(data) {
-    return HttpUtil.post('/api/stable/generation/text-to-image', data: data);
+    return DioManager.post('/api/stable/generation/text-to-image', data: data);
   }
 }

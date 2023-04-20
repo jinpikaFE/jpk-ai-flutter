@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/config/ProdConfig.dart';
+import 'package:flutter_project/utils/DioManager.dart';
 import 'package:flutter_project/views/IndexPage.dart';
 import 'package:flutter_project/views/tabs/SettingPage.dart';
 
@@ -7,7 +8,7 @@ import 'config/Config.dart';
 import 'config/DevConfig.dart';
 
 void main() {
-  const env = String.fromEnvironment('ENV', defaultValue: 'dev');
+  const env = String.fromEnvironment('ENV', defaultValue: 'prod');
   switch (env) {
     case 'dev':
     // 加载开发环境配置文件
@@ -20,6 +21,8 @@ void main() {
       Config.apiBaseUrl =apiBaseUrl;
       break;
   }
+  // 对dio封装实例化
+  DioManager();
   runApp(const MyApp());
 }
 
