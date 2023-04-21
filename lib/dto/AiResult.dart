@@ -24,8 +24,11 @@ class AiResult {
 
 class Data {
   List<Artifacts>? artifacts;
+  String? id;
+  String? message;
+  String? name;
 
-  Data({this.artifacts});
+  Data({this.artifacts,this.id, this.message, this.name});
 
   Data.fromJson(Map<String, dynamic> json) {
     if (json['artifacts'] != null) {
@@ -34,6 +37,9 @@ class Data {
         artifacts!.add(new Artifacts.fromJson(v));
       });
     }
+    id = json['id'];
+    message = json['message'];
+    name = json['name'];
   }
 
   Map<String, dynamic> toJson() {
@@ -41,6 +47,9 @@ class Data {
     if (this.artifacts != null) {
       data['artifacts'] = this.artifacts!.map((v) => v.toJson()).toList();
     }
+    data['id'] = this.id;
+    data['message'] = this.message;
+    data['name'] = this.name;
     return data;
   }
 }

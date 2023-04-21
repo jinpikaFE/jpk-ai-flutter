@@ -84,15 +84,16 @@ class _HomePageState extends State<HomePage> {
                               };
                               dynamic res = await AiApi.textToImage(formData);
                               AiResult result = AiResult.fromJson(res);
-                              String? resBase = result?.data?.artifacts?.elementAt(0)?.base64;
-                              if (resBase !=null) {
+                              String? resBase =
+                                  result?.data?.artifacts?.elementAt(0)?.base64;
+                              if (resBase != null) {
                                 setState(() {
                                   _imgUrl = resBase;
                                 });
                               } else {
-                                print("tesdt");
                                 final snackBar = SnackBar(
-                                  content: const Text('错误的关键字'),
+                                  content: Text(
+                                      "${result?.data?.name}:${result?.data?.message}"),
                                   duration: Duration(seconds: 3),
                                   action: SnackBarAction(
                                     label: '撤销',
@@ -101,9 +102,9 @@ class _HomePageState extends State<HomePage> {
                                     },
                                   ),
                                 );
-                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
                               }
-
                             }
                           },
                         ),

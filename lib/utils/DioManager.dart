@@ -69,6 +69,8 @@ class DioManager {
     ));
   }
 
+  Dio get dio => _dio!;
+
   static Future request(
     String url,
     String method,
